@@ -134,7 +134,7 @@ For the full command list, see the COMMANDS section.
   * `info` <URL>:
     Print the name and version that will be detected for <URL>.
 
-  * `install [--force] [--debug] [--ignore-dependencies] [--fresh] [--use-clang] [--use-gcc] [--use-llvm] [--build-from-source] [--HEAD]` <formula>:
+  * `install [--force] [--debug] [--ignore-dependencies] [--fresh] [--use-clang] [--use-gcc] [--use-llvm] [--build-from-source] [--devel] [--HEAD]` <formula>:
     Install <formula>.
 
     <formula> is usually the name of the formula to install, but may also be
@@ -165,8 +165,10 @@ For the full command list, see the COMMANDS section.
     If `--build-from-source` is passed, compile from source even if a bottle
     is provided for <formula>.
 
+    If `--devel` is passed, and <formula> defines it, install the development version.
+
     If `--HEAD` is passed, and <formula> defines it, install the HEAD version,
-    aka master, trunk, unstable, dev.
+    aka master, trunk, unstable.
 
     To install a newer version of HEAD use
     `brew rm <foo> && brew install --HEAD <foo>`
@@ -333,6 +335,9 @@ creating your own can be found on the wiki:
 
     This can be used to keep downloads out of your home folder, if you have
     it mounted on an SSD or are using FileVault for instance.
+
+  * HOMEBREW\_CURL\_VERBOSE:
+    If set, Homebrew will pass `--verbose` when invoking `curl`(1).
 
   * HOMEBREW\_DEBUG:
     If set, instructs Homebrew to always assume `--debug` when running
